@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tennis Tournament Simulator</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Tennis Tournament Simulator</h1>
+      </div>
+      <div class="actions">
+        <button id="shuffleButton" type="button">Shuffle Draw</button>
+        <button id="simulateButton" type="button">Simulate</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="status" aria-live="polite" hidden>
+        <strong id="drawLabel">Draw ready</strong>
+        <span id="drawMeta">Using ATP singles rankings data checked on 23 May 2026.</span>
+      </section>
+
+      <section id="draw" class="draw-board" aria-label="Tournament draw"></section>
+    </main>
+
+    <div id="tourModal" class="modal-backdrop">
+      <section class="modal" role="dialog" aria-modal="true" aria-labelledby="tourTitle">
+        <h2 id="tourTitle">Choose a tour</h2>
+        <div class="modal-actions">
+          <button class="choice-button" type="button" data-tour="ATP">ATP</button>
+          <button class="choice-button" type="button" data-tour="WTA">WTA</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="resultModal" class="modal-backdrop" hidden>
+      <section class="modal result-modal" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+        <h2 id="resultTitle">Winner</h2>
+        <div id="resultContent"></div>
+        <p id="shareStatus" class="share-status" aria-live="polite"></p>
+        <div class="modal-actions result-actions">
+          <button id="shareButton" type="button">Share Result</button>
+          <button id="closeResultButton" type="button">Close</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="players-atp.js"></script>
+    <script src="players-wta.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
